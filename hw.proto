@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+package helloworld;
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+  rpc ReturnJson (JsonRequest) returns (JsonMessage) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+
+message JsonRequest {
+  google.protobuf.Timestamp timestamp = 1;
+}
+
+message JsonMessage {
+    google.protobuf.Struct data = 1;
+}
